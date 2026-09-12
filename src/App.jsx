@@ -1,15 +1,22 @@
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Sidebar from './components/Sidebar'
+import Dashboard from './pages/Dashboard'
+import Students from './pages/Students'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-        <h1 className="text-3xl font-bold text-blue-800 mb-4">
-          🎓 Yasin School
-        </h1>
-        <p className="text-gray-600">
-          School Management System — Wali wuu socdaa
-        </p>
+    <BrowserRouter>
+      <div className="flex min-h-screen bg-gray-100">
+        <Sidebar />
+        <main className="flex-1 p-8">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/students" element={<Students />} />
+          </Routes>
+        </main>
       </div>
-    </div>
+    </BrowserRouter>
   )
 }
 
